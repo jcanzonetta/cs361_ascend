@@ -1,8 +1,14 @@
 import "../App.css";
 import { Link } from "react-router-dom";
 import ClimbSearch from "../components/ClimbSearch";
+import { useEffect } from "react";
 
 function SearchPage() {
+  /** Sets the title. */
+  useEffect(() => {
+    document.title = "Ascend - Search Query Goes Here";
+  }, []);
+
   return (
     <>
       <Link className="App-Link" to={"/"}>

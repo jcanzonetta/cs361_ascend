@@ -1,7 +1,14 @@
 import "../App.css";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import ClimbingWeather from "../components/ClimbWeather";
 
 function ClimbDetails() {
+  /** Sets the title. */
+  useEffect(() => {
+    document.title = "Ascend - Climb Name Goes Here";
+  }, []);
+
   return (
     <>
       <Link className="App-Link" to={"/"}>
@@ -26,7 +33,7 @@ function ClimbDetails() {
       </div>
       <div>
         <h5>Weather:</h5>
-        <div>Weather Widget Placeholder</div>
+        <ClimbingWeather></ClimbingWeather>
       </div>
       <div>
         <h5>Location:</h5>

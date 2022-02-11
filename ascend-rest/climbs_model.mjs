@@ -18,7 +18,7 @@ db.once("open", () => {
  */
 const climbSchema = mongoose.Schema({
   name: { type: String, required: true },
-  grade: { type: Number, required: true },
+  grade: { type: String, required: true },
   runnout: { type: String, required: false },
   description: { type: String, required: true },
   tags: { type: Array, required: true },

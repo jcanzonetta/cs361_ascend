@@ -1,7 +1,13 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ClimbSearch from "../components/ClimbSearch";
 
 function HomePage() {
+  /** Sets the title. */
+  useEffect(() => {
+    document.title = "Ascend";
+  }, []);
+
   return (
     <>
       <h1>Ascend</h1>
