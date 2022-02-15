@@ -18,7 +18,10 @@ function ClimbDetails() {
       <Link className="App-Link" to={"/"}>
         Home
       </Link>
-      <nav>Navigation Links to Search Placeholder</nav>
+      <nav>
+        California - San Francisco Bay Area - Mount Diablo -{" "}
+        <Link to={"/search/"}>Castle Rock</Link>
+      </nav>
       <h2>Castle Rock</h2>
       <div className="difficulty-header">
         <h3>5.6</h3>
