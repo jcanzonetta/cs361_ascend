@@ -9,7 +9,7 @@ function ClimbDetails() {
     document.title = "Ascend - Climb Name Goes Here";
   }, []);
 
-  const ViewClimb = (_) => {
+  const ViewClimbURLID = (_) => {
     const { state } = useLocation();
   };
 
