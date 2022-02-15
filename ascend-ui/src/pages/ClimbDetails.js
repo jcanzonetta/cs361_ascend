@@ -1,5 +1,5 @@
 import "../App.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import ClimbingWeather from "../components/ClimbWeather";
 
@@ -9,11 +9,16 @@ function ClimbDetails() {
     document.title = "Ascend - Climb Name Goes Here";
   }, []);
 
+  const ViewClimb = (_) => {
+    const { state } = useLocation();
+  };
+
   return (
     <>
       <Link className="App-Link" to={"/"}>
         Home
       </Link>
+      <nav>Navigation Links to Search Placeholder</nav>
       <h2>Castle Rock</h2>
       <div className="difficulty-header">
         <h3>5.6</h3>
