@@ -9,11 +9,9 @@ app.use(express.json());
 /**
  * Retrieves the climb(s) that match the query parameters.
  */
+
 app.get("/climbs", (req, res) => {
-  let filter = [];
-  Object.keys(req.query).forEach((key) => {
-    filter.push({ [key]: req.query[key] });
-  });
+  let filter = req.query;
 
   climbs
     .findClimbs(filter, "", 0)

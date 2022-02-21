@@ -24,6 +24,8 @@ const climbSchema = mongoose.Schema({
   tags: { type: Array, required: true },
 });
 
+const Climb = mongoose.model("Climb", climbSchema, "climbs_db");
+
 /**
  * Finds a exercise or multiple exercises matching the passed filter.
  * @param filter
@@ -31,8 +33,17 @@ const climbSchema = mongoose.Schema({
  */
 const findClimbs = async (filter) => {
   const query = Climb.find();
-  if (filter.length > 0) {
-    query.and(filter);
+  if (Object.keys(filter).length > 0) {
+    // Check if the query is a search.
+    for (const key in filter) {
+      if (key == "search") {
+        query.and({ $text: { $search: filter[key] } });
+      } else {
+        query.and({ key: filter[key] });
+      }
+    }
   }
   return query.exec();
 };
+
+export { findClimbs };

@@ -1,21 +1,24 @@
 import "../App.css";
 import { Link } from "react-router-dom";
 import ClimbSearch from "../components/ClimbSearch";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function SearchPage() {
+  const [climbs, setClimbs] = useState();
+
+  const loadClimbs = async () => {
+    const response = await fetch("/climbs");
+    const climbs = await response.json();
+    setClimbs(climbs);
+  };
+
   /** Sets the title. */
   useEffect(() => {
+    loadClimbs();
     document.title = "Ascend - Search Query Goes Here";
   }, []);
 
-  // For MVP Testing Purposes
-  const climbs = [
-    { id: 1, name: "Castle Rock" },
-    { id: 2, name: "Storm the Castle" },
-  ];
-
-  const climb = climbs[1];
+  const climb = climbs["name"];
 
   return (
     <>

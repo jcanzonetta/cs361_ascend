@@ -1,17 +1,28 @@
 import "../App.css";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import ClimbingWeather from "../components/ClimbWeather";
 
 function ClimbDetails() {
-  /** Sets the title. */
-  useEffect(() => {
-    document.title = "Ascend - Climb Name Goes Here";
-  }, []);
+  const [climb, setClimb] = useState();
 
+  /** Sets the URL. */
   const ViewClimbURLID = (_) => {
     const { state } = useLocation();
   };
+
+  const loadClimb = async () => {
+    const response = await fetch("/climb/:id");
+    const climb = await response.json();
+    setClimb(climb);
+  };
+
+  useEffect(() => {
+    // Loads the climb.
+    loadClimb();
+    // Sets the document's title.
+    document.title = `Ascend - ${climb.name}`;
+  }, []);
 
   return (
     <>
@@ -22,18 +33,14 @@ function ClimbDetails() {
         California - San Francisco Bay Area - Mount Diablo -{" "}
         <Link to={"/search/"}>Castle Rock</Link>
       </nav>
-      <h2>Castle Rock</h2>
+      <h2>{climb.name}</h2>
       <div className="difficulty-header">
-        <h3>5.6</h3>
-        <h4>x</h4>
+        <h3>{climb.grade}</h3>
+        <h4>{climb.runnout}</h4>
       </div>
       <div>
         <h5>Description</h5>
-        <body>
-          From Jim Thornburg’s guidebook, “If you can scramble up to the top of
-          Castle rock (5.2, carved steps) you can top rope this. Leading it
-          requires gear to 1.5” and is unrpotected at the crux.
-        </body>
+        <body>{climb.description}</body>
       </div>
       <div>
         <h5>Tags:</h5>
