@@ -24,6 +24,18 @@ app.get("/climbs", (req, res) => {
     });
 });
 
+app.get("/climb/:_id", (req, res) => {
+  climbs
+    .findClimb(req.params._id)
+    .then((climbs) => {
+      res.send(climbs);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ error: "Get failed" });
+    });
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}...`);
 });

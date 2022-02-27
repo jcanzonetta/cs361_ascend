@@ -46,4 +46,8 @@ const findClimbs = async (filter) => {
   return query.exec();
 };
 
-export { findClimbs };
+const findClimb = async (filter) => {
+  return Climb.findById(filter).exec();
+};
+
+export { findClimbs, findClimb };

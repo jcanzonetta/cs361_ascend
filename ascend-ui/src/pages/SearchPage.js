@@ -1,11 +1,14 @@
 import "../App.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import ClimbSearch from "../components/ClimbSearch";
 import { useState, useEffect } from "react";
 import ClimbResultsList from "../components/ClimbResultsList";
 
 function SearchPage() {
   const [climbs, setClimbs] = useState([]);
+  const navigate = useNavigate();
+
+  const location = useLocation();
 
   const loadClimbs = async () => {
     const response = await fetch("/climbs");
@@ -16,7 +19,7 @@ function SearchPage() {
   /** Sets the title. */
   useEffect(() => {
     loadClimbs();
-    // document.title = "Ascend - Search Query Goes Here";
+    document.title = `Ascend - ${location.pathname}`;
   }, []);
 
   return (

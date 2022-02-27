@@ -18,7 +18,6 @@ function ClimbSearch() {
         <button
           onClick={(e) => {
             setEnteredSearch(e.target.value);
-            alert(`you entered ${enteredSearch}`);
             e.preventDefault();
           }}
         >

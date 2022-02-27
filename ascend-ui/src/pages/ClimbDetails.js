@@ -4,26 +4,29 @@ import { useState, useEffect } from "react";
 import ClimbingWeather from "../components/ClimbWeather";
 
 function ClimbDetails() {
-  const [climb, setClimb] = useState();
+  const [climb, setClimb] = useState([]);
 
   const navigate = useNavigate();
-
-  /** Sets the URL. */
-  const ViewClimbURLID = (_) => {
-    const { state } = useLocation();
-  };
+  const location = useLocation();
+  const climbID = location.pathname.substring(14);
+  console.log(climbID);
+  // /** Sets the URL. */
+  // const ViewClimbURLID = (_) => {
+  //   const { state } = useLocation();
+  // };
 
   const loadClimb = async () => {
-    const response = await fetch("/climb/:id");
+    const response = await fetch(`/climb/${climbID}`);
     const climb = await response.json();
     setClimb(climb);
+    console.log(climb);
   };
 
   useEffect(() => {
     // Loads the climb.
     loadClimb();
     // Sets the document's title.
-    document.title = `Ascend - ${climb.name}`;
+    document.title = `Ascend - name goes here`;
   }, []);
 
   return (
