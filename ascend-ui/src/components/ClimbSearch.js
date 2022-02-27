@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ClimbSearch() {
   const [enteredSearch, setEnteredSearch] = useState("");
+
+  const navigate = useNavigate();
 
   return (
     <form>

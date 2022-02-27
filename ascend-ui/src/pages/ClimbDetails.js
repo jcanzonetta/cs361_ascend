@@ -1,10 +1,12 @@
 import "../App.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ClimbingWeather from "../components/ClimbWeather";
 
 function ClimbDetails() {
   const [climb, setClimb] = useState();
+
+  const navigate = useNavigate();
 
   /** Sets the URL. */
   const ViewClimbURLID = (_) => {

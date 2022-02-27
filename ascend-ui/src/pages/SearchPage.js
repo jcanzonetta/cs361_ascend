@@ -2,9 +2,10 @@ import "../App.css";
 import { Link } from "react-router-dom";
 import ClimbSearch from "../components/ClimbSearch";
 import { useState, useEffect } from "react";
+import ClimbResultsList from "../components/ClimbResultsList";
 
 function SearchPage() {
-  const [climbs, setClimbs] = useState();
+  const [climbs, setClimbs] = useState([]);
 
   const loadClimbs = async () => {
     const response = await fetch("/climbs");
@@ -15,10 +16,8 @@ function SearchPage() {
   /** Sets the title. */
   useEffect(() => {
     loadClimbs();
-    document.title = "Ascend - Search Query Goes Here";
+    // document.title = "Ascend - Search Query Goes Here";
   }, []);
-
-  const climb = climbs["name"];
 
   return (
     <>
@@ -27,17 +26,8 @@ function SearchPage() {
       </Link>
       <ClimbSearch></ClimbSearch>
       <h3>Climbs:</h3>
-      <div>
-        California - San Francisco Bay Area - Mount Diablo -{" "}
-        <Link
-          to={{
-            pathname: `/climbdetails/${climb.id}`,
-            state: { climbs: climb },
-          }}
-        >
-          Castle Rock
-        </Link>
-      </div>
+      <ClimbResultsList climbs={climbs}></ClimbResultsList>
+      <div>California - San Francisco Bay Area - Mount Diablo - </div>
       <div>Colorado - Boulder - Boulder Canyon - Storm the Castle</div>
       <div>Idaho - South Idaho - Castle Rocks - Castle Rock South Face</div>
       <h3>Locations:</h3>
