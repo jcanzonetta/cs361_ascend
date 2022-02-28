@@ -3,12 +3,17 @@ import { Link } from "react-router-dom";
 function ClimbResult({ climb }) {
   return (
     <div>
-      {console.log(climb)}
-      <span>{climb.state}</span>
+      <Link to={`/find?search=${climb.state}`}>
+        <span>{climb.state}</span>
+      </Link>
       <span> {"=>"} </span>
-      <span>{climb.region}</span>
+      <Link to={`/find?search=${climb.region}`}>
+        <span>{climb.region}</span>
+      </Link>
       <span> {"=>"} </span>
-      <span>{climb.wall}</span>
+      <Link to={`/find?search=${climb.wall}`}>
+        <span>{climb.wall}</span>
+      </Link>
       <span> ={">"} </span>
       <Link to={`/climbdetails/${climb._id}`}>
         <span>{climb.name}</span>

@@ -14,7 +14,6 @@ app.use(express.json());
 
 app.get("/climbs", (req, res) => {
   let filter = req.query;
-
   climbs
     .findClimbs(filter, "", 0)
     .then((climbs) => {

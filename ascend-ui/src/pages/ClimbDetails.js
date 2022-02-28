@@ -27,8 +27,10 @@ function ClimbDetails() {
         Home
       </Link>
       <nav>
-        {climb.state} - {climb.region} - {climb.wall} -{" "}
-        <Link to={"/search/"}>Castle Rock</Link>
+        <Link to={`/find?search=${climb.state}`}>{climb.state}</Link> -{" "}
+        <Link to={`/find?search=${climb.region}`}>{climb.region}</Link> -{" "}
+        <Link to={`/find?search=${climb.wall}`}>{climb.wall}</Link> -{" "}
+        <Link to={`/find?search=${climb.name}`}>{climb.name}</Link>
       </nav>
       <h2>{climb.name}</h2>
       <div className="difficulty-header">

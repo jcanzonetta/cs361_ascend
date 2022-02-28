@@ -11,7 +11,7 @@ function Weather() {
 
   useEffect(() => {
     loadWeather();
-  }, [weather]);
+  }, []);
 
   return (
     <div>
