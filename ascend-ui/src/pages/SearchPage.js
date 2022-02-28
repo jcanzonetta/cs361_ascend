@@ -16,9 +16,6 @@ function SearchPage() {
 
   useEffect(() => {
     loadClimbs();
-  }, []);
-
-  useEffect(() => {
     document.title = `Ascend - searching for "${location.search}"`;
   }, [location.search]);
 

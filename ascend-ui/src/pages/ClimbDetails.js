@@ -16,9 +16,7 @@ function ClimbDetails() {
   useEffect(() => {
     // Loads the climb.
     loadClimb();
-  }, []);
 
-  useEffect(() => {
     // Sets the document's title.
     document.title = `Ascend - ${climb.name}`;
   }, [climb.name]);
