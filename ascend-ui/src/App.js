@@ -11,7 +11,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="*" element={<HomePage />} exact />
-          <Route path="/search" element={<SearchPage />} />
+          <Route path="/find" element={<SearchPage />} />
           <Route path="/climbdetails/:_id" element={<ClimbDetails />} />
         </Routes>
       </Router>

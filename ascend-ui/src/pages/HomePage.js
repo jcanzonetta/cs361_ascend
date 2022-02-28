@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ClimbSearch from "../components/ClimbSearch";
+import Weather from "../components/Weather";
 
 function HomePage() {
   const [filterHelperShown, setFilterHelperShown] = useState(false);
@@ -20,7 +21,7 @@ function HomePage() {
         )}
       </div>
       <div>[Common filters will show up here.]</div>
-      <Link to={"/search"}>Simulate Searching "Castle Rock"</Link>
+      <Weather></Weather>
     </>
   );
 }

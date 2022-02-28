@@ -1,5 +1,7 @@
 import * as climbs from "./climbs_model.mjs";
 import express, { query } from "express";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 const app = express();
 
 const PORT = 3000;
@@ -34,6 +36,17 @@ app.get("/climb/:_id", (req, res) => {
       console.error(error);
       res.status(500).json({ error: "Get failed" });
     });
+});
+
+app.get("/weather", (req, res) => {
+  const fs = require("fs");
+  fs.readFile("./WeatherScraper/WeatherData.txt", (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    res.send(data.toString().split("\n"));
+  });
 });
 
 app.listen(PORT, () => {

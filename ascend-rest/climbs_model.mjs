@@ -22,6 +22,9 @@ const climbSchema = mongoose.Schema({
   runnout: { type: String, required: false },
   description: { type: String, required: true },
   tags: { type: Array, required: true },
+  state: { type: String, required: true },
+  region: { type: String, required: true },
+  wall: { type: String, required: true },
 });
 
 const Climb = mongoose.model("Climb", climbSchema, "climbs_db");

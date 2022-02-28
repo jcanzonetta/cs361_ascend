@@ -1,33 +1,27 @@
 import "../App.css";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import ClimbingWeather from "../components/ClimbWeather";
 
 function ClimbDetails() {
   const [climb, setClimb] = useState([]);
 
-  const navigate = useNavigate();
-  const location = useLocation();
-  const climbID = location.pathname.substring(14);
-  console.log(climbID);
-  // /** Sets the URL. */
-  // const ViewClimbURLID = (_) => {
-  //   const { state } = useLocation();
-  // };
+  const { _id } = useParams();
 
   const loadClimb = async () => {
-    const response = await fetch(`/climb/${climbID}`);
+    const response = await fetch(`/climb/${_id}`);
     const climb = await response.json();
     setClimb(climb);
-    console.log(climb);
   };
 
   useEffect(() => {
     // Loads the climb.
     loadClimb();
-    // Sets the document's title.
-    document.title = `Ascend - name goes here`;
   }, []);
+
+  useEffect(() => {
+    // Sets the document's title.
+    document.title = `Ascend - ${climb.name}`;
+  }, [climb.name]);
 
   return (
     <>
@@ -35,7 +29,7 @@ function ClimbDetails() {
         Home
       </Link>
       <nav>
-        California - San Francisco Bay Area - Mount Diablo -{" "}
+        {climb.state} - {climb.region} - {climb.wall} -{" "}
         <Link to={"/search/"}>Castle Rock</Link>
       </nav>
       <h2>{climb.name}</h2>
@@ -50,10 +44,6 @@ function ClimbDetails() {
       <div>
         <h5>Tags:</h5>
         <div>variable number of tags shown here</div>
-      </div>
-      <div>
-        <h5>Weather:</h5>
-        <ClimbingWeather></ClimbingWeather>
       </div>
       <div>
         <h5>Photos:</h5>
