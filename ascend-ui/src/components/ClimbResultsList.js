@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Climb from "./ClimbResult";
 
 function ClimbResultsList({ climbs }) {

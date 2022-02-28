@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import ClimbSearch from "../components/ClimbSearch";
 import Weather from "../components/Weather";
 
 function HomePage() {
   const [filterHelperShown, setFilterHelperShown] = useState(false);
-  const navigate = useNavigate();
 
   return (
     <>
