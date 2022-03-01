@@ -15,9 +15,13 @@ function Weather() {
 
   return (
     <div>
-      {weather.map((line, key) => {
-        return <p key={key}>{line}</p>;
-      })}
+      {weather.length > 0 ? (
+        weather.map((line, key) => {
+          return <p key={key}>{line}</p>;
+        })
+      ) : (
+        <p>Loading Weather...</p>
+      )}
     </div>
   );
 }

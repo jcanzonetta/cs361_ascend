@@ -58,7 +58,8 @@ def convertToText(dict):
     humidity = "Humidity: " + str(dict["humidity"])
     wind = "Wind: " + str(dict["wind"])
 
-    message = [location, time, temperature, description, precipitation, humidity, wind]
+    message = [location, time, temperature,
+               description, precipitation, humidity, wind]
     with open('WeatherData.txt', 'w') as f:
         for line in message:
             f.write(line)
@@ -70,7 +71,8 @@ if __name__ == "__main__":
     URL = "https://www.google.com/search?q=corvallis+oregon+weather&rlz=1C5CHFA_enUS983US983&oq=corvallis+oregon+" \
           "weather&aqs=chrome..69i57j0i512l2j0i457i512j0i512l6.3864j1j15&sourceid=chrome&ie=UTF-8"
 
-    parser = argparse.ArgumentParser(description="Quick Script for Extracting Weather data using Google Weather")
+    parser = argparse.ArgumentParser(
+        description="Quick Script for Extracting Weather data using Google Weather")
     parser.add_argument("region", nargs="?", help="""Region to get weather for, must be available region.
                                         Default is your current location determined by your IP Address""", default="")
     # parse arguments

@@ -1,12 +1,14 @@
 import "../App.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import ClimbSearch from "../components/ClimbSearch";
 import { useState, useEffect } from "react";
 import ClimbResultsList from "../components/ClimbResultsList";
 
 function SearchPage() {
   const [climbs, setClimbs] = useState([]);
+  const [query, setQuery] = useState();
   const location = useLocation();
+  // const query = new URLSearchParams(location.search).get("search");
 
   const loadClimbs = async () => {
     const response = await fetch(`/climbs${location.search}`);
@@ -14,17 +16,26 @@ function SearchPage() {
     setClimbs(climbs);
   };
 
+  const loadQuery = async () => {
+    const query = new URLSearchParams(location.search).get("search");
+    setQuery(query);
+  };
+
   useEffect(() => {
     loadClimbs();
-    document.title = `Ascend - searching for "${location.search}"`;
+    loadQuery();
   }, [location.search]);
+
+  useEffect(() => {
+    document.title = `Ascend - searching for "${query}"`;
+  }, [query]);
 
   return (
     <>
       <Link className="App-Link" to={"/"}>
         Home
       </Link>
-      <ClimbSearch></ClimbSearch>
+      <ClimbSearch initialValue={query}></ClimbSearch>
       <h3>Climbs:</h3>
       <ClimbResultsList climbs={climbs}></ClimbResultsList>
     </>

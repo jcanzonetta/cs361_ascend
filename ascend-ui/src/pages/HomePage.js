@@ -8,7 +8,7 @@ function HomePage() {
   return (
     <>
       <h1>Ascend</h1>
-      <ClimbSearch></ClimbSearch>
+      <ClimbSearch placeholder="Search for a climb, location, or quality."></ClimbSearch>
       <div
         onMouseEnter={() => setFilterHelperShown(true)}
         onMouseLeave={() => setFilterHelperShown(false)}

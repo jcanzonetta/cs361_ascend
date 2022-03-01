@@ -1,7 +1,7 @@
 Current Weather for: Corvallis, OR
-Time: Sunday 12:00 AM
-Temperature now: 44°F
+Time: Monday 7:00 PM
+Temperature now: 57°F
 Description: Cloudy
-Precipitation: 13%
-Humidity: 93%
-Wind: 4 mph
+Precipitation: 64%
+Humidity: 79%
+Wind: 13 mph

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function ClimbSearch() {
+function ClimbSearch({ placeholder = null, initialValue = null }) {
   const [enteredSearch, setEnteredSearch] = useState("");
 
   const navigate = useNavigate();
@@ -11,8 +11,8 @@ function ClimbSearch() {
       <fieldset>
         <input
           type="text"
-          placeholder="Search for a climb by name, location, or other quality"
-          value={enteredSearch}
+          placeholder={placeholder}
+          defaultValue={initialValue}
           onChange={(e) => setEnteredSearch(e.target.value)}
         ></input>
         <button
