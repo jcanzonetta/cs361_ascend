@@ -1,5 +1,5 @@
 import "../App.css";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ClimbSearch from "../components/ClimbSearch";
 import { useState, useEffect } from "react";
 import ClimbResultsList from "../components/ClimbResultsList";
@@ -8,7 +8,6 @@ function SearchPage() {
   const [climbs, setClimbs] = useState([]);
   const [query, setQuery] = useState();
   const location = useLocation();
-  // const query = new URLSearchParams(location.search).get("search");
 
   const loadClimbs = async () => {
     const response = await fetch(`/climbs${location.search}`);

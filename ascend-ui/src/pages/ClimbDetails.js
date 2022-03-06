@@ -1,6 +1,7 @@
 import "../App.css";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Map from "../components/Map";
 
 function ClimbDetails() {
   const [climb, setClimb] = useState([]);
@@ -39,7 +40,7 @@ function ClimbDetails() {
       </div>
       <div>
         <h5>Description</h5>
-        <body>{climb.description}</body>
+        <div>{climb.description}</div>
       </div>
       <div>
         <h5>Tags:</h5>
@@ -51,7 +52,7 @@ function ClimbDetails() {
       </div>
       <div>
         <h5>Location:</h5>
-        <div>Map Widget Placeholder</div>
+        <Map coord={climb.coordinates} />
       </div>
     </>
   );
