@@ -35,8 +35,10 @@ function SearchPage() {
         Home
       </Link>
       <ClimbSearch initialValue={query}></ClimbSearch>
-      <h3>Climbs:</h3>
-      <ClimbResultsList climbs={climbs}></ClimbResultsList>
+      <div className="search-elements">
+        <h3>Climbs:</h3>
+        <ClimbResultsList climbs={climbs}></ClimbResultsList>
+      </div>{" "}
     </>
   );
 }

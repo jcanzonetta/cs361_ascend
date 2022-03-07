@@ -14,7 +14,7 @@ function Weather() {
   }, []);
 
   return (
-    <div>
+    <div className="weather-component">
       {weather.length > 0 ? (
         weather.map((line, key) => {
           return <p key={key}>{line}</p>;

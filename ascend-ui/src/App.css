@@ -13,6 +13,64 @@
   }
 }
 
+.home-header {
+  text-align: center;
+}
+
+.home-filters {
+  text-align: center;
+}
+
+.search-form {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+}
+
+.search-bar {
+  text-align: center;
+  border-radius: 0.7rem;
+  padding: 0 1rem;
+  width: 100%;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.search-bar:focus {
+  border-color: rgba(81, 203, 238, 1);
+}
+
+.search-button {
+  /* position: absolute;
+  margin-top: 0px;
+  margin-right: 0px; */
+  border-radius: 0.7rem;
+  z-index: 2;
+  cursor: pointer;
+  grid-column-start: 2;
+  grid-column-start: 3;
+}
+
+fieldset {
+  border: 0;
+  width: 25vw;
+  display: grid;
+}
+
+.weather-component {
+  display: grid;
+  place-content: center;
+}
+
+.search-elements {
+  margin-left: 5em;
+}
+
+.displayed-photos {
+  max-width: 25%;
+  height: auto;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

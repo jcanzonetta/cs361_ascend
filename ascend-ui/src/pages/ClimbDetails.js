@@ -48,7 +48,10 @@ function ClimbDetails() {
       </div>
       <div>
         <h5>Photos:</h5>
-        <img src="/images/castle-rock-regional.jpg"></img>
+        <img
+          className="displayed-photos"
+          src="/images/castle-rock-regional.jpg"
+        ></img>
       </div>
       <div>
         <h5>Location:</h5>

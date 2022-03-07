@@ -7,9 +7,10 @@ function HomePage() {
 
   return (
     <>
-      <h1>Ascend</h1>
+      <h1 className="home-header">Ascend</h1>
       <ClimbSearch placeholder="Search for a climb, location, or quality."></ClimbSearch>
       <div
+        className="home-filters"
         onMouseEnter={() => setFilterHelperShown(true)}
         onMouseLeave={() => setFilterHelperShown(false)}
       >
@@ -18,8 +19,8 @@ function HomePage() {
           <div>Apply a filter to narrow down your search!</div>
         )}
       </div>
-      <div>[Common filters will show up here.]</div>
-      <Weather></Weather>
+      <div className="home-filters">[Common filters will show up here.]</div>
+      <Weather className="weather-component"></Weather>
     </>
   );
 }
