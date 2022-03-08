@@ -37,7 +37,7 @@
 }
 
 .search-bar:focus {
-  border-color: rgba(81, 203, 238, 1);
+  outline: none;
 }
 
 .search-button {
