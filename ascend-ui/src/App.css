@@ -66,9 +66,14 @@ fieldset {
   margin-left: 5em;
 }
 
-.displayed-photos {
+.climb-photos-component {
+  max-width: 100%;
+}
+
+.climb-photo {
   max-width: 25%;
   height: auto;
+  padding: 0 1em;
 }
 
 .App-header {

@@ -1,6 +1,7 @@
 import "../App.css";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import ClimbPhotos from "../components/ClimbPhotos";
 import Map from "../components/Map";
 
 function ClimbDetails() {
@@ -48,10 +49,9 @@ function ClimbDetails() {
       </div>
       <div>
         <h5>Photos:</h5>
-        <img
-          className="displayed-photos"
-          src="/images/castle-rock-regional.jpg"
-        ></img>
+        {console.log(climb.photos)}
+        {console.log(climb.name)}
+        <ClimbPhotos photos_array={climb.photos} />
       </div>
       <div>
         <h5>Location:</h5>
