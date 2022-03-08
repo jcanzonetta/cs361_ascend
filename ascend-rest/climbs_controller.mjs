@@ -1,5 +1,5 @@
 import * as climbs from "./climbs_model.mjs";
-import express, { query } from "express";
+import express from "express";
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const app = express();
@@ -11,7 +11,6 @@ app.use(express.json());
 /**
  * Retrieves the climb(s) that match the query parameters.
  */
-
 app.get("/climbs", (req, res) => {
   let filter = req.query;
   climbs
