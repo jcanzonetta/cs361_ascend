@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import ClimbSearch from "../components/ClimbSearch";
 import { useState, useEffect } from "react";
 import ClimbResultsList from "../components/ClimbResultsList";
+import { HomeHeader } from "../components/HomeHeader";
 
 function SearchPage() {
   const [climbs, setClimbs] = useState([]);
@@ -31,9 +32,7 @@ function SearchPage() {
 
   return (
     <>
-      <Link className="App-Link" to={"/"}>
-        Home
-      </Link>
+      <HomeHeader />
       <ClimbSearch initialValue={query}></ClimbSearch>
       <div className="search-elements">
         <h3>Climbs:</h3>

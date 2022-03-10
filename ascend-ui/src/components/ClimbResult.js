@@ -1,20 +1,21 @@
 import { Link } from "react-router-dom";
+import { MdArrowForwardIos } from "react-icons/md";
 
 function ClimbResult({ climb }) {
   return (
-    <div>
+    <div className="single-climb-result">
       <Link to={`/find?search=${climb.state}`}>
         <span>{climb.state}</span>
       </Link>
-      <span> {"=>"} </span>
+      <MdArrowForwardIos />
       <Link to={`/find?search=${climb.region}`}>
         <span>{climb.region}</span>
       </Link>
-      <span> {"=>"} </span>
+      <MdArrowForwardIos />
       <Link to={`/find?search=${climb.wall}`}>
         <span>{climb.wall}</span>
       </Link>
-      <span> ={">"} </span>
+      <MdArrowForwardIos />
       <Link to={`/climbdetails/${climb._id}`}>
         <span>{climb.name}</span>
       </Link>

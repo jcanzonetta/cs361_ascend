@@ -1,16 +1,17 @@
 import { useState } from "react";
 import ClimbSearch from "../components/ClimbSearch";
 import Weather from "../components/Weather";
+import { HomeHeader } from "../components/HomeHeader";
 
 function HomePage() {
   const [filterHelperShown, setFilterHelperShown] = useState(false);
 
   return (
     <>
-      <h1 className="home-header">Ascend</h1>
+      <HomeHeader />
       <ClimbSearch placeholder="Search for a climb, location, or quality."></ClimbSearch>
       <div
-        className="home-filters"
+        className="home-filters-container"
         onMouseEnter={() => setFilterHelperShown(true)}
         onMouseLeave={() => setFilterHelperShown(false)}
       >

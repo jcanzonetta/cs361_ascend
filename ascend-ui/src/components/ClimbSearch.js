@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MdOutlineSearch } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
 function ClimbSearch({ placeholder = null, initialValue = null }) {
@@ -24,7 +25,7 @@ function ClimbSearch({ placeholder = null, initialValue = null }) {
             e.preventDefault();
           }}
         >
-          Search
+          <MdOutlineSearch />
         </button>
       </fieldset>
     </form>
