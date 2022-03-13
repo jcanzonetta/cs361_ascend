@@ -5,7 +5,7 @@ function Map({ coord }) {
     dynamicWidth: window.innerWidth,
     dynamicHeight: window.innerHeight,
   });
-  const src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyDuwZoWIIMJyOCtdaC7KhjSI4i8xA1LOyY&q=${coord}&maptype=satellite`;
+  const [src, setSrc] = useState();
 
   const setDimenions = () => {
     getDimensions({
@@ -13,6 +13,13 @@ function Map({ coord }) {
       dynamicHeight: window.innerHeight,
     });
   };
+
+  useEffect(() => {
+    let str_coord = String(coord[1]) + "," + String(coord[0]);
+    setSrc(
+      `https://www.google.com/maps/embed/v1/place?key=AIzaSyDuwZoWIIMJyOCtdaC7KhjSI4i8xA1LOyY&q=${str_coord}&maptype=satellite`
+    );
+  }, [coord]);
 
   useEffect(() => {
     window.addEventListener("resize", setDimenions);

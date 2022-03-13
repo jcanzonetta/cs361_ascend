@@ -27,7 +27,7 @@ function SearchPage() {
   }, [location.search]);
 
   useEffect(() => {
-    document.title = `Ascend - searching for "${query}"`;
+    document.title = `Ascend - searching for: ${query}`;
   }, [query]);
 
   return (

@@ -17,19 +17,27 @@ db.once("open", () => {
  * Define the schema
  */
 const climbSchema = mongoose.Schema({
-  name: { type: String, required: true },
-  grade: { type: String, required: true },
-  runnout: { type: String, required: false },
-  description: { type: String, required: true },
-  tags: { type: Array, required: true },
-  state: { type: String, required: true },
-  region: { type: String, required: true },
-  wall: { type: String, required: true },
-  coordinates: { type: String, required: false },
-  photos: { type: Array, required: false },
+  // name: { type: String, required: true },
+  // grade: { type: String, required: true },
+  // runnout: { type: String, required: false },
+  // description: { type: String, required: true },
+  // tags: { type: Array, required: true },
+  // state: { type: String, required: true },
+  // region: { type: String, required: false },
+  // wall: { type: String, required: true },
+  // coordinates: { type: String, required: false },
+  // photos: { type: Array, required: false },
+  route_name: { type: String, required: true },
+  grade: { type: Object, required: false },
+  safety: { type: String, required: true },
+  type: { type: Object, required: true },
+  description: { type: Array, required: true },
+  location: { type: Array, required: true },
+  protection: { type: Array, required: true },
+  metadata: { type: Object, required: false },
 });
 
-const Climb = mongoose.model("Climb", climbSchema, "climbs_db");
+const Climb = mongoose.model("Climb", climbSchema, "climbs");
 
 /**
  * Finds a exercise or multiple exercises matching the passed filter.

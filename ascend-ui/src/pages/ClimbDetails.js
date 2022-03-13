@@ -24,18 +24,18 @@ function ClimbDetails() {
     loadClimb();
 
     // Sets the document's title.
-    document.title = `Ascend - ${climb.name}`;
-  }, [climb.name]);
+    document.title = `Ascend - ${climb.route_name}`;
+  }, [climb.route_name]);
 
   return (
     <>
       <HomeHeader />
       <div className="climb-detail-container">
         <ClimbResult climb={climb}></ClimbResult>
-        <h2>{climb.name}</h2>
+        <h2>{climb.route_name}</h2>
         <div className="difficulty-header">
-          <h3>{climb.grade}</h3>
-          <h4>{climb.runnout}</h4>
+          <h3>{"grade" in climb ? climb.grade.YDS : <p>Ungraded</p>}</h3>
+          <h4>{climb.safety}</h4>
         </div>
         <div>
           <h5>
@@ -43,6 +43,18 @@ function ClimbDetails() {
             Description:
           </h5>
           <div>{climb.description}</div>
+          <h5>Location:</h5>
+          <div>
+            {climb.location && climb.location[0].length > 0
+              ? climb.location
+              : "No additional location information."}
+          </div>
+          <h5>Protection:</h5>
+          <div>
+            {climb.protection && climb.protection[0].lnegth > 0
+              ? climb.protection
+              : "No additional protection infoformation."}
+          </div>
         </div>
         <div>
           <h5>
@@ -56,8 +68,6 @@ function ClimbDetails() {
             <IoMdPhotos />
             Photos:
           </h5>
-          {console.log(climb.photos)}
-          {console.log(climb.name)}
           <ClimbPhotos photos_array={climb.photos} />
         </div>
         <div>
@@ -65,7 +75,11 @@ function ClimbDetails() {
             <MdLocationPin />
             Location:
           </h5>
-          <Map coord={climb.coordinates} />
+          {"metadata" in climb ? (
+            <Map coord={climb.metadata.parent_lnglat} />
+          ) : (
+            <div> No map data. </div>
+          )}
         </div>
       </div>
     </>
