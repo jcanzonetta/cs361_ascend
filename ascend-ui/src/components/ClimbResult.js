@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { MdArrowForwardIos } from "react-icons/md";
 
+// Returns a series of 3 to 4 elements which make up the location hierarchy of a climb, starting
+// with the state, region, wall, and actual route name. Each element links back to a new
+// search with that element as the query.
 function ClimbResult({ climb }) {
   return (
     <div className="single-climb-result">

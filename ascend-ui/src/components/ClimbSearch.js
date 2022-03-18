@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MdOutlineSearch } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
+// React component to render the search bar and button.
 function ClimbSearch({ placeholder = null, initialValue = null }) {
   const [enteredSearch, setEnteredSearch] = useState("");
 

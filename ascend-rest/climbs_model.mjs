@@ -17,16 +17,7 @@ db.once("open", () => {
  * Define the schema
  */
 const climbSchema = mongoose.Schema({
-  // name: { type: String, required: true },
-  // grade: { type: String, required: true },
-  // runnout: { type: String, required: false },
-  // description: { type: String, required: true },
-  // tags: { type: Array, required: true },
-  // state: { type: String, required: true },
-  // region: { type: String, required: false },
-  // wall: { type: String, required: true },
-  // coordinates: { type: String, required: false },
-  // photos: { type: Array, required: false },
+  photos: { type: Array, required: false },
   route_name: { type: String, required: true },
   grade: { type: Object, required: false },
   safety: { type: String, required: true },
@@ -40,7 +31,7 @@ const climbSchema = mongoose.Schema({
 const Climb = mongoose.model("Climb", climbSchema, "climbs");
 
 /**
- * Finds a exercise or multiple exercises matching the passed filter.
+ * Finds a climb or multiple climbs matching the passed filter.
  * @param filter
  * @returns
  */

@@ -24,6 +24,9 @@ app.get("/climbs", (req, res) => {
     });
 });
 
+/**
+ * Retrieves a single climb based on its _id.
+ */
 app.get("/climb/:_id", (req, res) => {
   climbs
     .findClimb(req.params._id)
@@ -36,6 +39,9 @@ app.get("/climb/:_id", (req, res) => {
     });
 });
 
+/**
+ * Retrieves the weather from a separate weather microservice.
+ */
 app.get("/weather", (req, res) => {
   const fs = require("fs");
   fs.readFile("./WeatherScraper/WeatherData.txt", (err, data) => {

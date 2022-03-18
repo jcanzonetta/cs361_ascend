@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+// Displays an iFrame using Google's Embedded Map API.
 function Map({ coord }) {
   const [dimensions, getDimensions] = useState({
     dynamicWidth: window.innerWidth,
@@ -7,6 +8,7 @@ function Map({ coord }) {
   });
   const [src, setSrc] = useState();
 
+  // Retrieve the current browser window dimensions to set an appropriately sized iframe.
   const setDimenions = () => {
     getDimensions({
       dynamicWidth: window.innerWidth,
@@ -14,6 +16,7 @@ function Map({ coord }) {
     });
   };
 
+  // Converts the coordinates in the coord array to a string friendly to the Google API requirement.
   useEffect(() => {
     let str_coord = String(coord[1]) + "," + String(coord[0]);
     setSrc(
@@ -21,6 +24,7 @@ function Map({ coord }) {
     );
   }, [coord]);
 
+  // Listener event to update dimensions when changed.
   useEffect(() => {
     window.addEventListener("resize", setDimenions);
 

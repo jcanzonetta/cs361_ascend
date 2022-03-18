@@ -1,5 +1,7 @@
 import Climb from "./ClimbResult";
 
+// Reduces the list of climbs to the first 20 elements and returns each
+// individual Climb component.
 function ClimbResultsList({ climbs }) {
   return (
     <>

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ClimbSearch from "../components/ClimbSearch";
 import Weather from "../components/Weather";
 import { HomeHeader } from "../components/HomeHeader";

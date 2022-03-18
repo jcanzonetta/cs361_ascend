@@ -13,6 +13,7 @@ function ClimbDetails() {
 
   const { _id } = useParams();
 
+  // Sets the climb based on the id in the url.
   const loadClimb = async () => {
     const response = await fetch(`/climb/${_id}`);
     const climb = await response.json();
@@ -20,10 +21,7 @@ function ClimbDetails() {
   };
 
   useEffect(() => {
-    // Loads the climb.
     loadClimb();
-
-    // Sets the document's title.
     document.title = `Ascend - ${climb.route_name}`;
   }, [climb.route_name]);
 
