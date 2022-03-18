@@ -7,20 +7,20 @@ import { MdArrowForwardIos } from "react-icons/md";
 function ClimbResult({ climb }) {
   return (
     <div className="single-climb-result">
-      <Link to={`/find?search=${climb.state}`}>
+      <Link to={`/find?search="${climb.state}"`}>
         <span>{climb.state}</span>
       </Link>
       <MdArrowForwardIos />
       {"region" in climb && (
         <>
-          <Link to={`/find?search=${climb.region}`}>
+          <Link to={`/find?search="${climb.region}"`}>
             <span>{climb.region}</span>
           </Link>
           <MdArrowForwardIos />
         </>
       )}
       {"metadata" in climb ? (
-        <Link to={`/find?search=${climb.metadata.parent_sector}`}>
+        <Link to={`/find?search="${climb.metadata.parent_sector}"`}>
           <span>{climb.metadata.parent_sector}</span>
         </Link>
       ) : (
